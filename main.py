@@ -1,7 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-print("lol")
+plt.rcParams.update({
+   # "text.usetex": True,
+    "font.family": "serif",
+    "font.size": 12,
+    "axes.labelsize": 12,
+    "axes.titlesize": 13,
+    "legend.fontsize": 10,
+    "xtick.labelsize": 10,
+    "ytick.labelsize": 10,
+    "figure.dpi": 150,
+})
+
 # Parámetros del sistema
 R = 1.0
 gamma2 = 1.0
@@ -29,22 +40,24 @@ for i in range(len(t) - 1):
     inversion[i + 1] = N2[i + 1] - N1[i + 1]
 
 # Graficar poblaciones
-plt.figure(figsize=(8, 5))
-plt.plot(t, N1, label=r"$N_1(t)$")
-plt.plot(t, N2, label=r"$N_2(t)$")
-plt.xlabel("Tiempo")
-plt.ylabel("Población")
-plt.title("Sistema de dos niveles")
-plt.legend()
-plt.grid(True)
-plt.savefig("grafico_poblacion.png")
+plt.figure(figsize=(6, 4))
+plt.plot(t, N1, label=r"$N_1(t)$", linewidth=2)
+plt.plot(t, N2, label=r"$N_2(t)$", linewidth=2, linestyle="--")
+plt.xlabel(r"Time $t$")
+plt.ylabel(r"Population $N(t)$")
+plt.title(r"Two-Level System")
+plt.legend(frameon=False)
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.savefig("grafico_poblacion.pdf")
 
 # Graficar inversión de población
-plt.figure(figsize=(8, 5))
-plt.plot(t, inversion, label=r"$N_2 - N_1$")
-plt.xlabel("Tiempo")
-plt.ylabel("Inversión")
-plt.title("Inversión de población en sistema de dos niveles")
-plt.legend()
-plt.grid(True)
-plt.savefig("grafico_inversion.png")
+plt.figure(figsize=(6, 4))
+plt.plot(t, inversion, linewidth=2)
+plt.xlabel("Time")
+plt.ylabel(r"$N_2 - N_1$")
+plt.title("Population Inversion")
+
+plt.grid(alpha=0.3)
+plt.tight_layout()
+plt.savefig("grafico_inversion.pdf")

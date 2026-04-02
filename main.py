@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+print("lol")
 # Parámetros del sistema
 R = 1.0
 gamma2 = 1.0
@@ -36,7 +37,7 @@ plt.ylabel("Población")
 plt.title("Sistema de dos niveles")
 plt.legend()
 plt.grid(True)
-plt.show()
+plt.savefig("grafico_poblacion.png")
 
 # Graficar inversión de población
 plt.figure(figsize=(8, 5))
@@ -46,4 +47,4 @@ plt.ylabel("Inversión")
 plt.title("Inversión de población en sistema de dos niveles")
 plt.legend()
 plt.grid(True)
-plt.show()
+plt.savefig("grafico_inversion.png")
